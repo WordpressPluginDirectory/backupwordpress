@@ -676,3 +676,16 @@ function list_directory_by_total_filesize( $directory, Excludes $excludes ) {
 	return $files;
 
 }
+
+/**
+ * Sanitize directory path to prevent potential security vulnerability through directory traversal
+ *
+ * @param String $directory THe directory path being checked
+ * @return String The sanitized version of directory path
+ */
+function sanitize_exclusion_directory_path($directory) {
+	$directory = !empty( $directory ) ? wp_unslash(rawurldecode($directory)) : Path::get_root();
+	$directory = untrailingslashit(realpath($directory)); // this will return the realpath when there's ".." or "." included and passed through the query arg e.g. "/var/www/htdocs/mywebsite/../.." will be "/var/www" and "/var/www/htdocs/mywebsite/../../../.." will be "/"
+	if (!$directory || strpos($directory, untrailingslashit(realpath(Path::get_root()))) !== 0) $directory = Path::get_root();
+	return wp_normalize_path($directory);
+}

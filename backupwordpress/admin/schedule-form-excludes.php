@@ -90,20 +90,8 @@ $user_excludes = $excludes->get_user_excludes(); ?>
 	<?php
 
 	// The directory to display.
-	$directory = Path::get_root();
-
-	if ( isset( $_GET['hmbkp_directory_browse'] ) ) {
-
-		$untrusted_directory = urldecode( $_GET['hmbkp_directory_browse'] );
-
-		// Only allow real sub-directories of the site root to be browsed.
-		if (
-			false !== strpos( $untrusted_directory, Path::get_root() ) &&
-			is_dir( $untrusted_directory )
-		) {
-			$directory = $untrusted_directory;
-		}
-	}
+	$directory = isset( $_GET['hmbkp_directory_browse'] ) && is_string( $_GET['hmbkp_directory_browse'] ) ? $_GET['hmbkp_directory_browse'] : '';
+	$directory = sanitize_exclusion_directory_path( $directory );
 
 	$site_size          = new Site_Size( 'file' );
 	$excluded_site_size = new Site_Size( 'file', $excludes );

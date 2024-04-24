@@ -50,8 +50,7 @@ class Path {
 	public function __clone() { throw new \Exception('may not be cloned'); }
 
 	/**
-	 * Private unserialize method to prevent unserializing of the *Singleton*
-	 * instance.
+	 * Prevent unserializing of the *Singleton* instance.
 	 */
 	public function __wakeup() { throw new \Exception('may not be serialized'); }
 

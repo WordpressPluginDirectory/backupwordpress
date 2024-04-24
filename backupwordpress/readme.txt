@@ -1,9 +1,9 @@
 === BackUpWordPress ===
-Contributors: xibodevelopment, willmot, dashaluna, pauldewouters, joehoyle, mattheu, tcrsavage, cuvelier, katmoody, sambulance
+Contributors: xibodevelopment, willmot, dashaluna, pauldewouters, joehoyle, mattheu, tcrsavage, cuvelier, katmoody, sambulance, dnutbourne, snightingale
 Tags: back up, backup, backups, database, zip, db, files, archive, wp-cli, xibodevelopment
 Requires at least: 3.9
-Tested up to: 5.9
-Stable tag: 3.13
+Tested up to: 6.5
+Stable tag: 3.14
 
 Simple automated backups of your WordPress-powered website.
 
@@ -31,9 +31,6 @@ This plugin requires PHP version 5.3.2 or later
 * Good support should you need help.
 * Translations for Spanish, German, Chinese, Romanian, Russian, Serbian, Lithuanian, Italian, Czech, Dutch, French, Basque.
 
-= Help develop this plugin =
-
-The BackUpWordPress plugin is hosted on GitHub, if you want to help out with development or testing then head over to [https://github.com/orgs/xibodevelopment/backupwordpress/](https://github.com/orgs/xibodevelopment/backupwordpress/)
 = Translations =
 
 We'd also love help translating the plugin into more languages, if you can help then please visit [https://translate.wordpress.org/projects/wp-plugins/backupwordpress/dev/](https://translate.wordpress.org/projects/wp-plugins/backupwordpress/dev/) to start translating.
@@ -107,7 +104,6 @@ If your backups are failing, it's commonly caused by a lack of available resourc
 
 General support questions should be posted in the <a href="http://wordpress.org/tags/backupwordpress?forum_id=10">WordPress support forums, tagged with backupwordpress.</a>
 
-For development issues, feature requests or anybody wishing to help out with development checkout <a href="https://github.com/orgs/xibodevelopment/backupwordpress/">BackUpWordPress on GitHub.</a>
 
 == Screenshots ==
 
@@ -116,6 +112,12 @@ For development issues, feature requests or anybody wishing to help out with dev
 3. Easily manage exclude rules and see exactly which files are included and excluded from your backup.
 
 == Upgrade Notice ==
+
+= 3.14 =
+
+* Security fix for vulnerability through directory traversal on the exclusion feature
+
+* WordPress 6.5 compatibility
 
 = 3.13 =
 
@@ -160,6 +162,10 @@ users should see major improvements to reliability.
 * This is a critical update. Fixes a bug in the core backup library. Please update immediately.
 
 == Changelog ==
+
+### 3.14 / 2024-04-22
+
+* Fixed security vulnerability through directory traversal while authenticated as admin
 
 ### 3.13 / 2022-02-23
 
@@ -1327,7 +1333,7 @@ Fix some silly 1.0 bugs
 
 #### 1.0
 
-1.0 represents a total rewrite & rethink of the BackUpWordPress plugin with a focus on making it "Just Work". The management and development of the plugin has been taken over by [[Human Made](http://hmn.md) the chaps behind [WP Remote](https://wpremote.com)
+1.0 represents a total rewrite & rethink of the BackUpWordPress plugin with a focus on making it "Just Work". The management and development of the plugin has been taken over by [Human Made](http://hmn.md) the chaps behind [WP Remote](https://wpremote.com)
 
 #### Previous
 

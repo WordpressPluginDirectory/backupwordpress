@@ -34,8 +34,7 @@ class Notices {
 	protected function __construct() {}
 
 	/**
-	 * Private clone method to prevent cloning of the instance of the
-	 * *Singleton* instance.
+	 * Prevent cloning of the instance of the *Singleton* instance.
 	 */
 	public function __clone() { throw new \Exception('may not be cloned'); }
 
